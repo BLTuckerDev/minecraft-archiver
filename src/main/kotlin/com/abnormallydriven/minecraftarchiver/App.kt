@@ -33,12 +33,12 @@ fun main(args: Array<String>) {
     val zipFile = directoryZipper.zip(folderToBackUp)
 
 
-    val storageOptionsBuiler = StorageOptions.newBuilder()
+    val storageOptionsBuilder = StorageOptions.newBuilder()
 
-    storageOptionsBuiler.setProjectId(projectId)
-    storageOptionsBuiler.setCredentials(googleCredentials)
+    storageOptionsBuilder.setProjectId(projectId)
+    storageOptionsBuilder.setCredentials(googleCredentials)
 
-    val storageOptions: StorageOptions = storageOptionsBuiler.build()
+    val storageOptions: StorageOptions = storageOptionsBuilder.build()
     val storageService = storageOptions.service
     val minecraftBackupBucket = storageService.get(bucketName)
     val uploader = ZipFileUploader(minecraftBackupBucket, storageService)
