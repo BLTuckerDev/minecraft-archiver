@@ -15,7 +15,6 @@ class DirectoryZipper(private val dateFormatter: DateTimeFormatter) {
         ZipOutputStream(zipFile.outputStream().buffered()).use {
             recursiveZip(it, directory, zipFile.name + "_backup")
             it.closeEntry()
-            it.close()
         }
 
         zipFile.deleteOnExit()
